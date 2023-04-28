@@ -4,17 +4,26 @@
  * Depending on the operation, either add up all of the numbers or subtract all of the numbers, from left to right.
  * @returns {number} The result of either adding all numbers or subtracting all numbers, depending on the arguments added to the command line.
  */
-function calculator() {
+function calculator(plus) {
 //console.log(process)
-//plus = (prcocess.argv[0])
 
-console.log(process.argv)
+add2Num = parseInt(`${process.argv[3]}`) +parseInt(`${process.argv[4]}`)
+console.log(`Adding two numbers: ${add2Num}`)
+
+addMultipleNum = parseInt(`${process.argv[3]}`) +parseInt(`${process.argv[4]}`)+
+parseInt(`${process.argv[5]}`)+parseInt(`${process.argv[6]}`)+parseInt(`${process.argv[3]}`)
+
+
+console.log(`Adding multiple numbers:${addMultipleNum}`)
+
+}
+calculator()
+
+
 
 //
 //console.log(process.argv[1]+process.argv[0]+process.argv[2]+process.argv[0]+process.argv[3]+process.argv[0]+process.argv[4])
 
-}
-calculator()
 
 // Don't change anything below this line.
 module.exports = calculator;
