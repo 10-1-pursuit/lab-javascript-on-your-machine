@@ -4,20 +4,54 @@
  * Depending on the operation, either add up all of the numbers or subtract all of the numbers, from left to right.
  * @returns {number} The result of either adding all numbers or subtracting all numbers, depending on the arguments added to the command line.
  */
-function calculator(plus) {
+function calculator(plus,minus) {
 //console.log(process)
 
-add2Num = parseInt(`${process.argv[3]}`) +parseInt(`${process.argv[4]}`)
-console.log(`Adding two numbers: ${add2Num}`)
+     add2Num = parseInt(`${process.argv[3]}`) +parseInt(`${process.argv[4]}`);
+         if(process.argv[2]=== plus){
+            return add2Num
+         }
+        
+ console.log(`Adding two numbers: ${add2Num}`)
 
-addMultipleNum = parseInt(`${process.argv[3]}`) +parseInt(`${process.argv[4]}`)+
-parseInt(`${process.argv[5]}`)+parseInt(`${process.argv[6]}`)+parseInt(`${process.argv[3]}`)
 
+
+    addMultipleNum = parseInt(`${process.argv[3]}`) + parseInt(`${process.argv[4]}`)+
+ parseInt(`${process.argv[5]}`) + parseInt(`${process.argv[6]}`)+ parseInt(`${process.argv[7]}`);
+         if(process.argv[2] === plus){
+            return addMultipleNum
+         }
 
 console.log(`Adding multiple numbers:${addMultipleNum}`)
 
+        
+
+    sub2Num= parseInt(`${process.argv[4]}`)- parseInt(`${process.argv[3]}`);
+        if(process.argv[2] === minus){
+            return sub2Num
+        }
+console.log(`Subtracting two numbers : ${sub2Num}`)
+        
+        
+
+    subMultipleNum=parseInt(`${process.argv[3]}`) -parseInt(`${process.argv[4]}`)-
+parseInt(`${process.argv[5]}`) - parseInt(`${process.argv[6]}`)- parseInt(`${process.argv[7]}`);
+        if(process.argv[2] === minus){
+            return subMultipleNum
+        }
+console.log(`Subtracting multiplenumbers : ${subMultipleNum}`)
+
+    div2Num= parseInt(`${process.argv[3]}`)/parseInt(`${process.argv[4]}`);
+         if(process.argv[2] !== plus&& process.argv[2] !== minus){
+             console.log( `Invalid operation: ${process.argv[2]}` );
+         }
+        
+
+
 }
 calculator()
+
+
 
 
 
