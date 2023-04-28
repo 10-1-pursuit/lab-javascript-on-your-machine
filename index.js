@@ -42,7 +42,7 @@ parseInt(`${process.argv[5]}`) - parseInt(`${process.argv[6]}`)- parseInt(`${pro
 console.log(`Subtracting multiplenumbers : ${subMultipleNum}`)
 
     div2Num= parseInt(`${process.argv[3]}`)/parseInt(`${process.argv[4]}`);
-         if(process.argv[2] !== plus&& process.argv[2] !== minus){
+         if(process.argv[2] !== plus || process.argv[2] !== minus){
              console.log( `Invalid operation: ${process.argv[2]}` );
          }
         
