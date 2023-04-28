@@ -6,36 +6,32 @@
  */
 function calculator() {
     const args = process.argv;
-    //Error Handling
 
-    if(args.length < 3){
+    //Error Handling
+    if (args.length < 3) {
         return "No operation provided...";
-        //typeof args[3] !== "string"
-    }else if(! (args.includes("plus") || args.includes("minus")) ){
+    } else if (!(args.includes("plus") || args.includes("minus"))) {
         return `Invalid operation: ${args[2]}`;
-    }else if(args.length<4 || typeof Number(args[4]) !== "number"){
+    } else if (args.length < 4 || typeof Number(args[4]) !== "number") {
         return "No numbers provided...";
     }
-    //typeof Number(args[4]) !== "number"
-    //no numbers "No numbers provided..."
-    
-    
+
     //plus operator
-    if(args[2].toLowerCase() === "plus"){
+    if (args[2].toLowerCase() === "plus") {
         let sum = 0;
-        for(let i = 3; i < args.length; i++){
+        for (let i = 3; i < args.length; i++) {
             sum += Number(args[i]);
         }
         return sum;
-    //minus operator
-    }else if(args[2].toLowerCase() === "minus"){
+
+        //minus operator
+    } else if (args[2].toLowerCase() === "minus") {
         let diff = Number(args[3]);
-        for(let i = 4; i < args.length; i++){
+        for (let i = 4; i < args.length; i++) {
             diff -= Number(args[i]);
         }
         return diff;
     }
-    
 }
 
 
