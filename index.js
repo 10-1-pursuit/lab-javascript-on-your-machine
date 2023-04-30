@@ -9,13 +9,13 @@ function calculator() {
 	let result = 0;
 	//  2. `accumulator`
 	let num = 0;
-	// 3. another `accumulator`
+	// 3. another `accumulator` for the first element
 	let firstNum = Number(process.argv[3]);
 
-	// 2. Create a variable that accesses the inputted operation.
+	// 4. Create a variable that accesses the inputted operation.
 	const operation = process.argv[2];
 
-	// Error handling
+	// 5. Error handling using guard clauses
 	if (operation === undefined) {
 		result = 'No operation provided...';
 	}
@@ -30,24 +30,21 @@ function calculator() {
 		result = `Invalid operation: ${operation}`;
 	}
 
-	// 3. Iterate over the `process.argv` array.
+	// 6. Iterate over the `process.argv` array.
 	for (let i = 4; i < process.argv.length; i++) {
-		// if (process.argv.length > 3) {
-		// 4. If the operation passed in is `plus`, add the numbers together sequentially using the `accumulator pattern` and reassign the total to `result`.
+		// 7. If the operation passed in is `plus`, add the numbers together sequentially using the `accumulator pattern` and reassign the total to `result`.
 		if (operation === 'plus') {
-			// Convert the inputted string to a `number` data type to be able to perform arithmetic operations on.
+			// 8. Convert the inputted string to a `number` data type to be able to perform arithmetic operations on.
 			num = Number(process.argv[i]);
 			firstNum += num;
 			result = firstNum;
-			// 5. If the operation passed in is `minus`, subtract the numbers sequentially using the `accumulator pattern` and reassign the result to `result`.
 		}
+		// 9. If the operation passed in is `minus`, subtract the numbers sequentially using the `accumulator pattern` and reassign the result to `result`.
 		if (operation === 'minus') {
 			num = Number(process.argv[i]);
 			firstNum -= num;
 			result = firstNum;
-			// 6. If the operation passed in is not `plus` or `minus` reassign `result` to `Invalid operation <operation>`.
 		}
-		// }
 	}
 
 	return result;
