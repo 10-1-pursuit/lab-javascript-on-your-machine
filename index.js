@@ -10,37 +10,44 @@ function calculator() {
 	//  2. `accumulator`
 	let num = 0;
 	// 3. another `accumulator`
-	let secondNum = Number(process.argv[3]);
+	let firstNum = Number(process.argv[3]);
 
 	// 2. Create a variable that accesses the inputted operation.
 	const operation = process.argv[2];
 
 	// Error handling
-	if (!operation) {
+	if (operation === undefined) {
 		result = 'No operation provided...';
-	} else {
+	}
+	if (operation && process.argv[3] === undefined) {
 		result = 'No numbers provided...';
+	}
+	if (
+		operation &&
+		process.argv[3] &&
+		(operation !== 'plus' || operation !== 'minus')
+	) {
+		result = `Invalid operation: ${operation}`;
 	}
 
 	// 3. Iterate over the `process.argv` array.
 	for (let i = 4; i < process.argv.length; i++) {
-		if (process.argv.length > 3) {
-			// 4. If the operation passed in is `plus`, add the numbers together sequentially using the `accumulator pattern` and reassign the total to `result`.
-			if (operation === 'plus') {
-				// Convert the inputted string to a `number` data type to be able to perform arithmetic operations on.
-				num = Number(process.argv[i]);
-				secondNum += num;
-				result = secondNum;
-				// 5. If the operation passed in is `minus`, subtract the numbers sequentially using the `accumulator pattern` and reassign the result to `result`.
-			} else if (operation === 'minus') {
-				num = Number(process.argv[i]);
-				secondNum -= num;
-				result = secondNum;
-				// 6. If the operation passed in is not `plus` or `minus` reassign `result` to `Invalid operation <operation>`.
-			} else {
-				result = `Invalid operation: ${operation}`;
-			}
+		// if (process.argv.length > 3) {
+		// 4. If the operation passed in is `plus`, add the numbers together sequentially using the `accumulator pattern` and reassign the total to `result`.
+		if (operation === 'plus') {
+			// Convert the inputted string to a `number` data type to be able to perform arithmetic operations on.
+			num = Number(process.argv[i]);
+			firstNum += num;
+			result = firstNum;
+			// 5. If the operation passed in is `minus`, subtract the numbers sequentially using the `accumulator pattern` and reassign the result to `result`.
 		}
+		if (operation === 'minus') {
+			num = Number(process.argv[i]);
+			firstNum -= num;
+			result = firstNum;
+			// 6. If the operation passed in is not `plus` or `minus` reassign `result` to `Invalid operation <operation>`.
+		}
+		// }
 	}
 
 	return result;
