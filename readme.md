@@ -149,5 +149,5 @@ node index.js
 ## Tips
 
 - Remember that the first and second elements of `process.argv` are always the path to the `node` program and the filepath.
-- Remember that each argument from the command line will be read in as a string. You will need some way to convert the inputs from strings to numbers.
+- Remember that each argument from the command line will be read in as a string. You will need some way to con10vert the inputs from strings to numbers.
 - Because you don't know how many numbers will be passed in, you may need to _iterate_ over the numbers.
