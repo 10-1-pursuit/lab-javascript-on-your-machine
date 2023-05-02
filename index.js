@@ -17,7 +17,7 @@ function calculator() {
 
   const numbers = process.argv.slice(3); //look at every element after  [2]
   //let numArray = [];
-   if (numbers.length === 0q) { //are there less than 2 elements
+   if (numbers.length === 0) { //are there less than 2 elements
       //console.log("first", numbers.length)
     return "No numbers provided...";
   }
@@ -27,12 +27,9 @@ function calculator() {
       sum += Number(num); //accumulate everything including && after [3]
       }
       else if (operator === "minus") {
-         console.log("n", numbers)
-         sum -= Number(num);  
-         console.log("s", sum)
-   }
-      
-  }
+        return sum = numbers.reduce((previousVal, currentVal) => Number(previousVal) - Number(currentVal)) //accummulate the difference of numbers
+      }
+      } 
   return sum;
 }
 
