@@ -9,40 +9,33 @@
 
 
 
-
-
-
-function calculator() {
-     theOperator = process.argv[2];
-    if (theOperator !== ("plus" || "minus")){
-        return (`Invalid operation: ${theOperator}`)
+function calculator(){
+     let theOperator =  process.argv[2] //
+     let sum = 0
+  if (!theOperator) {  //Deteremine if this variable does not contains "theOperator"? by signify with the "!" operator. 
+        return "No operation provided...";  //Determined that there was not "theOperator" thus returning the "No operation provided.."statement!
+    } else if (theOperator !== "plus" && theOperator != "minus"){ // If no mathmatical expression is provided either "plus" or "minus".
+        return `Invalid operation: ${theOperator}`; // Return the response of "Invalid operator :" + my variable of "theOperator" I used `string interpelation` in order to combine my return values. 
     }
-}
 
-   // console.log (process.argv[2])
-   if (firstStep !== "plus" || firstStep !== "minus"){
-        return `Invalid operation: ${process.argv[2]}`
-   }
-    let firstStep = process.argv[2]
-   if (firstStep === undefined){
-        return "No operation provided..."
-    }
-    if (firstStep !== "plus" || firstStep !== "minus"){
-     return `Invalid operation: ${process.argv[2]}`
-}
-    let numbers = process.argv.slice(3)
-       if (numbers.length === 0){
-            return "No numbers provided..."
-       }
-       if (typeof Number (numbers[0]) !== `number`){
-            return "No numbers provided..."
-        }
-    
-        console.log (process.argv[2]);
+     let numbers = process.argv.slice(3); //Created "numbers" variable equal to my [3] index of my array by creating new copy of to iterate by using the .slice() method becuase we know the "numbers" start at that index of the array!
+     if (numbers.length === 0){  // if != No number is provided through length of the array!
+          return "No numbers provided..." // Then return the response of "No numbers provided..."
+     }
+   
+     for(let num of numbers){ // While looping through the array of numbers
 
-//console.log (calculator( parseInt(`${process.argv[3]}`) + parseInt(`${process.argv[4]}`)));
-   // console.log(process.argv[2])
+          console.log (num)
+          if (theOperator === "plus"){ // Checking if "theOperator" is equal to "plus"
+               return sum = numbers.reduce((preiousVal, currentVal) => Number(preiousVal) + Number (currentVal)); // With the .reduce method I used to take two values from the prevVal and currentVal and manipulate my array to  add the values!
+          }
+          }
 
+      if ( theOperator === "minus"){ 
+    // With the .reduce method I used to take two values from the prevVal and currentVal and manipulate my array to the last value!
+
+      return sum = numbers.reduce((preiousVal, currentVal) => Number(preiousVal) - Number (currentVal)) 
+}}
 // Don't change anything below this line.
 module.exports = calculator;
 
