@@ -8,6 +8,10 @@ function calculator() {
 
     console.log(process.argv)
 
+    let operation = process.argv[2];
+    let operationArray = []
+    let result;
+
     if (process.argv.length < 3) {
         return `No operation provided...`
     } else if (process.argv.length < 4) {
