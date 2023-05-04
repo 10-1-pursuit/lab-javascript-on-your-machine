@@ -24,6 +24,14 @@ function calculator() {
             result = operationArray.reduce((a, b) => Number(a) + Number(b))
         }
         return result
+    }
+    else if (operation === "minus") {
+        for (let i = 3; i < process.argv.length; i++) {
+            let num = process.argv[i]
+            operationArray.push(num)
+            result = operationArray.reduce((a, b) => Number(a) - Number(b))
+        }
+        return result
 
     }
 }
