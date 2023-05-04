@@ -17,9 +17,16 @@ function calculator() {
     } else if (process.argv.length < 4) {
         return `No numbers provided...`
     }
+    else if (operation === "plus") {
+        for (let i = 3; i < process.argv.length; i++) {
+            let num = process.argv[i]
+            operationArray.push(num)
+            result = operationArray.reduce((a, b) => Number(a) + Number(b))
+        }
+        return result
 
+    }
 }
-
 calculator()
 
 // Don't change anything below this line.
