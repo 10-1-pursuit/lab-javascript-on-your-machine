@@ -8,15 +8,15 @@ function calculator() {
 
     console.log(process.argv)
 
-    let operation = process.argv[2];
+    let operation = process.argv[2]
     let operationArray = []
-    let result;
-
+    let result
+    // error handling
     if (process.argv.length < 3) {
         return `No operation provided...`
     } else if (process.argv.length < 4) {
         return `No numbers provided...`
-    }
+    }   // plus
     else if (operation === "plus") {
         for (let i = 3; i < process.argv.length; i++) {
             let num = process.argv[i]
@@ -24,7 +24,7 @@ function calculator() {
             result = operationArray.reduce((a, b) => Number(a) + Number(b))
         }
         return result
-    }
+    }   // minus
     else if (operation === "minus") {
         for (let i = 3; i < process.argv.length; i++) {
             let num = process.argv[i]
@@ -32,6 +32,9 @@ function calculator() {
             result = operationArray.reduce((a, b) => Number(a) - Number(b))
         }
         return result
+    }   // final error handling
+    else if (operation !== "plus" || "minus") {
+        return `Invalid operation: ${operation}`
 
     }
 }
