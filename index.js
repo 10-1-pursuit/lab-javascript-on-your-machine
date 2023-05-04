@@ -8,6 +8,12 @@ function calculator() {
 
     console.log(process.argv)
 
+    if (process.argv.length < 3) {
+        return `No operation provided...`
+    } else if (process.argv.length < 4) {
+        return `No numbers provided...`
+    }
+
 }
 
 calculator()
